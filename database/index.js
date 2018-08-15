@@ -20,8 +20,11 @@ let catSchema = mongoose.Schema({
 let Cat = mongoose.model('Cat', catSchema);
 
 let save = (data,callback) => {
-  // TODO: Your code here
-  
+   var cat = new Cat(data)
+      cat.save(function (err, elem) {
+        if (err) { callback(err, null) }
+        callback(null, elem)
+      })
   
 }
 
