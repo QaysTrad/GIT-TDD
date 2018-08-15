@@ -8,15 +8,13 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../angular-client/')));
 
 app.get('/cats', function (req, res) {
-	db.find({}, function (err, data) {
+	db.Cat.find({}, function (err, data) {
 		if (err){
 			throw err;
 		} else {
 			res.send(data)
 		}
 	})
-  
-
 });
 
 app.post('/cats', function (req, res) {
@@ -27,7 +25,6 @@ app.post('/cats', function (req, res) {
     res.send(data)
   })
 })
-
 
 
 let port = 1128;
