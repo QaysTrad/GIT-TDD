@@ -15,7 +15,12 @@ app.get('/cats', function (req, res) {
 
 app.post('/cats', function (req, res) {
   // TODO - your code here!
-  
+   db.save(req.body, function (err, data) {
+    if (err) {
+      res.send(err)
+    }
+    res.send(data)
+  })
 })
 
 
